@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<title>myMITC Mobile</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex">
+	<link rel="icon" href="images/apple-icon-192x192-precomposed.png" type="image/x-icon"/>
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/apple-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/apple-icon-144x144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="192x192" href="images/apple-icon-192x192-precomposed.png">
+	<link type="text/css" rel="stylesheet" href="css/styles.css?v=2_9221"/>
+	<link type="text/css" rel="stylesheet" href="css/shortcuts.css?v=2_9221"/>	
+	<link type="text/css" rel="stylesheet" href="css/testing.css?v=2_9221"/>
+	<link type="text/css" rel="stylesheet" href="css/simplegrid.css?v=2_9221"/>
+	<link type="text/css" rel="stylesheet" href="CSS/sctasks.css?v=2_9221"/>
+	<link type="text/css" rel="stylesheet" href="CSS/data.css?v=2_9221"/>
+	<link type="text/css" rel="stylesheet" href="CSS/dialog.css?v=2_9221"/>	
+	<script>
+		var ui_a1 = "";
+		var ui_a2 = "";
+		var LCID = "1033";	
+		ui_actto = 6480000; 
+		var expand = true
+		window.addEventListener("message", event => {
+        if (typeof event.data != "object") return
+        if (event.data.type != "resize") return
+        if (expand)
+		{
+			expand = false
+			const iframe = window.frames.gibIf 
+			iframe.setAttribute("width", event.data.width+20)
+			iframe.setAttribute("height", event.data.height+20)
+			var el2 = document.getElementById("gib_window")
+			//el2.setAttribute("width", "")
+			//el2.setAttribute("height", "")
+			//modalShow("gib",'','', false);
+			modalShow("gib",'','', false);
+		}
+		else
+		{
+			expand = true
+		}
+		
+      })		
+	</script>	
+	<script type="text/javascript" src="Include/touchscroll.js?v=2_9221"></script>	
+	<script type="text/javascript" src="Include/jult.js?v=2_9221"></script>
+	<script type="text/javascript" src="Include/tt_time.js?v=2_9221"></script>
+	<script type="text/javascript" src="https://www.mymitc.com/s.js"></script>
+	<script type="text/javascript" src="Include/responsive-nav.js?v=2_9221"></script>	
+	<style type="text/css">
+		
+	:root{
+	  --bci-color: #7ade7a;
+	  --green-color: #5CB85C;
+	  --bco-color: #ff8585;
+	  --chking-color: #FFF8B3;
+	  --chkerr-color: #FAD2D2;
+	  --chkok-color: #DCEAD0;
+	  --Pending-color: #F59D0A;
+	  --Changed-color: #C7B301;
+	  --rejected-color: #B40000;
+      --Saving-color: #B40000;
+      --grey-color: #b6b6b6;
+      --chking-colora: #FFF8B390;
+	  --chkerr-colora: #FAD2D290;
+	  --chkok-colora: #DCEAD0ff;
+	  --Pending-colora: #F59D0A10;
+	  --Changed-colora: #C7B30110;
+      --Saving-colora: #B4000010;
+      --grey-colora: #b6b6b6cc;
+      --grey-colorb: #b6b6b661;
+	  --phtc: #ffffff;
+	  --phdc: #000000;
+	  --bgcolor_light: ;
+      --bgcolor_dark: ;    
+	}
+	
+
+	.fieldPending { border: 1px solid #F59D0A; border-radius: 5px;}
+	.fieldChanged { border: 1px solid #C7B301; border-radius: 5px;}
+	.fieldSaving { border: 1px solid #B40000; border-radius: 5px;}
+	.panel-header { background: #0099CC;}
+
+		
+	</style>
+<style>
+.globalbg-overlay {
+	background: rgba(1,46,75, .9);
+}
+.drop-grp-usermenu, .drop-grp-back {
+	display: none !important;
+}
+.drop-grp-userlogon {
+	display: inline-block;
+}
+.logoimg {
+	display: none;
+}
+.logologon {
+	display: inline;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+	
+	<!--Start Top-->
+	<!--A=-->
+	<!--SA=-->	
+	
+<style>
+
+	.ttbg{background-color:#0099CC;}
+	.ttbg-l{background-color:;}
+	.ttbg-d{background-color:;}
+
+	
+/* ************************************************* ACCORDION DROPDOWN MENU */
+
+/* Core Classes 
+	mnu-main and mnu-color go on the parent element
+	
+	mnu-icon and mnu-link are for the image and text respectively
+*/
+
+/* --- Main --- */	
+	.mnu-main{
+		margin-top: 3px;
+		position:relative;
+		text-align:left;
+		border-top-right-radius:5px;
+		border-bottom-right-radius:5px; 
+		overflow:hidden; 
+	}	
+	
+	/*.mnu-main:before{
+		content:""; 
+		position:absolute;
+		top:0px;
+		left:0px;		
+		width:35px;
+		height:100%;	
+		max-height:33px;
+		background-color:white; 
+		border-top-right-radius: 10px 20px;
+		border-bottom-right-radius: 10px 20px;
+	}*/
+
+	
+/* ---Default Effects for Main--- */	
+
+.mnu-main:active {top: 2px;}
+
+.mnu-main-arw:active {top: 2px;}
+
+/* --- Icon  --- */	
+	
+	.mnu-icon{
+		position:absolute;
+		top:0px;
+		left:0px; 	
+		width:30px; 
+		height:100%;	
+		max-height:33px;
+		border-top-left-radius:5px;
+		border-bottom-left-radius:5px; 
+		display:inline-block;
+	}
+
+	.mnu-icon-arc{
+		position:absolute;
+		top:-33px;
+		left:-67px;		
+		width:100px;
+		height:100px;	
+		border-radius:50px; 
+		border:solid 4px white; 
+		background-color:transparent; 
+		
+	}
+	
+/* --- / Img Default Up/Down Arrows --- */	
+
+	.mnu-icon-UDarrow1{}
+	.mnu-icon-UDarrow1:after{
+		content:""; 
+		display:block; 
+		position:relative; 
+		background-image:url(Images/103W.png);
+		background-position:50% 50%;
+		background-size: 75% 75%;
+		background-repeat:no-repeat; 
+		min-height:32px; 
+	}
+	.mnu-icon-UDarrow2{}
+	.mnu-icon-UDarrow2:after{
+		content:""; 
+		display:block; 
+		position:relative; 
+		background-image:url(Images/103W.png);
+		background-position:50% 50%;
+		background-size: 75% 75%;
+		background-repeat:no-repeat; 
+		min-height:32px; 
+		rotate:180deg;
+	}
+	
+/* --- / Img Default Left/Right Arrows --- */		
+	
+	.mnu-icon-LRarrow1{}
+	.mnu-icon-LRarrow1:after{
+		content:""; 
+		display:block; 
+		position:relative; 
+		background-image:url(Images/103W.png);
+		background-position:50% 50%;
+		background-size: 75% 75%;
+		background-repeat:no-repeat; 
+		min-height:32px; 
+		rotate:270deg;
+	}
+	.mnu-icon-LRarrow2{}
+	.mnu-icon-LRarrow2:after{
+		content:""; 
+		display:block; 
+		position:relative; 
+		background-image:url(Images/103W.png);
+		background-position:50% 50%;
+		background-size: 75% 75%;
+		background-repeat:no-repeat; 
+		min-height:32px; 
+		rotate:90deg;
+	}
+	
+/* --- Link / Text --- */		
+			
+	.mnu-link{
+		margin-left:40px;
+		display: inline-block;
+		text-align: left;		
+		font-weight: bold;
+		color: #4B4B4B;
+		text-shadow: 1px 1px rgba(255,255,255, .9);
+		-webkit-transition: color .15s ease, text-shadow .15s ease, background-color .15s ease;
+		-moz-transition: color .15s ease, text-shadow .15s ease, background-color .15s ease;
+		transition: color .15s ease, text-shadow .15s ease, background-color .15s ease;	
+		
+		user-select: none; /* Standard syntax */
+		-webkit-user-select: none; /* Safari */
+		-ms-user-select: none; /* IE 10 and IE 11 */
+		user-select: none;
+
+	}
+	
+/* ---Default Effects for Link --- */	
+	.mnu-main-color:hover .mnu-link {text-shadow: 1px 1px rgba(255,255,255, .9); color: #000000;}	
+	
+		
+/* ---Default Colors--- */		
+	.mnu-main-color{
+		background-color: ;		
+	}
+	
+	.mnu-icon-color{
+		background-color: ;
+		border-right:2px solid ;
+	}
+	
+/* ---Default Effects for Main Color--- */		
+	.mnu-main-color:hover {background-color: #0099CC; border-top-left-radius:5px; border-bottom-left-radius:5px;}	
+	.mnu-main-color:active {background-color: ;}
+
+/* ---Default Effects for Icon --- */	
+	.mnu-main-color:hover .mnu-icon-color{
+		background-color:#0099CC;
+		border-right:2px solid #0099CC;
+	}
+	.mnu-main-color:active .mnu-icon-color{ 
+		background-color: ;
+		border-right:2px solid ;
+	}
+
+
+
+/* --- Old Classes --- */	
+		
+	.ac-menu-link {
+		display: block;
+		text-align: left;
+		padding: 5px;
+		border-radius: 8px;
+		background-color: ;
+		border: 2px solid rgba(0,0,0, .1);
+		margin-top: 7px;
+		font-weight: bold;
+		color: #4B4B4B;
+		text-shadow: 1px 1px rgba(255,255,255, .9);
+		-webkit-transition: color .15s ease, text-shadow .15s ease, background-color .15s ease;
+		-moz-transition: color .15s ease, text-shadow .15s ease, background-color .15s ease;
+		transition: color .15s ease, text-shadow .15s ease, background-color .15s ease;
+	}
+	.ac-menu-link:hover { text-shadow: 1px 1px rgba(255,255,255, .9); color: #000000; background-color: #0099CC;}
+	.ac-menu-link:active { position: relative; top: 1px;}
+	.ac-menu-link:active { background-color: ; color:#0099CC;}
+	
+	.ac-menu {
+		display: block;
+		opacity:1;
+		visibility:visible;
+		height: auto;
+		text-align: left;
+		list-style: none;
+		overflow: hidden;
+		-webkit-transition: all 0.3s ease-in;
+		-moz-transition: all 0.3s ease-in;
+		transition: all 0.3s ease-in;
+	}
+	.ac-menu > li > a {
+		-webkit-transition: background .2s ease;
+		-moz-transition: background .2s ease;
+		transition: background .2s ease;
+		display: block;
+		padding: 4px;
+		border-radius: 5px;
+	}
+	.ac-menu > li > a:hover {
+		background-color: #F5F5F5;
+	}
+/* ************************************************* Panel Header */
+
+
+	.panel-header
+	{
+		background:#0099CC;
+	}
+</style>
+	
+<!--Start Top-->
+<!--A=-->
+<!--SA=-->
+	<div class="globalbg" style="background-color: #0099CC;"></div>
+	<div class="globalbg-overlay"></div>
+	<div class="topbg" style="background-color: #0099CC;"></div>
+	<div class="logo"><span class="dsp-ib h-full vrta-m"></span><a href="default.asp"><img class="logologon" src="Images/mymitclogon.png"><img class="logoimg" src="Images/mymitclogo.png"></a></div>
+	<div class="drop-grp-top drop-grp-nav mrg-lr5 fltl">
+		<button type="button" class="drop-btn-topmenu nav-toggle pad-0"></button>
+	</div>
+	<div class="drop-grp-top drop-grp-usermenu mrg-lr5 fltr">	
+		<button type="button" class="drop-btn-topmenu pad-lr5 lg-w-auto" data-toggle="dropdown"><span class="drop-btn-username mrg-lr5"></span><img src="images/user.png" class="i-22"><img src="images/23.png" class="i-22"></button>
+		<ul class="dropdown-menu pull-right" role="menu">
+			<li class="dropdown-username dropdown-sm-only"></li>
+			<li class="divider dropdown-sm-only"></li>
+			<li><a href="user.asp"><img src="images/myProfile.png" class="i-20 mrg-lr5">&nbsp;myProfile</a></li>
+			<li class="divider"></li>
+			<li class="dropdown-sm-only"><a href="/MyMITC/2/Default.asp?mbl=f"><img src="images/mobile-layout.png" class="i-20 mrg-lr5">&nbsp;Mobile Layout <span style="font-weight: bold">On</span></a></li>
+		</ul>
+	</div>
+	<div class="drop-grp-top drop-grp-userlogon mrg-r5 fltr">
+		<a href="newlogon.asp"><button type="button" class="drop-btn-topmenu"><span>Log On</span></button></a>
+	</div>	
+	<div role="navigation" id="foo" class="nav-collapse">
+		<ul style="padding:0px">		
+<!--Start Menu-->
+<!--Start-->
+<li><a href="/MyMITC/2/Timesheet.asp"><img src="/mymitc/2/images/myTimesheet.png" class="i-25 mrg-lr5">&nbsp;myTimesheet</a></li><li><a href="/MyMITC/2/phonelist.ASP"><img src="/mymitc/2/images/phone-list.png" class="i-25 mrg-lr5">&nbsp;Phone List</a></li><li><a href="/MyMITC/2/managers.ASP"><img src="/mymitc/2/images/manager-dashboard.png" class="i-25 mrg-lr5">&nbsp;Manager Dashboard</a></li><li><a href="/MyMITC/2/CV_Main.asp"><img src="/mymitc/2/images/user.png" class="i-25 mrg-lr5">&nbsp;Client Logon</a></li>
+<!--End-->
+	                                
+<!--End Menu-->
+			<li style="border-top: 1px solid rgba(255,255,255, .1); font-size:5px;">&nbsp;</li>
+		</ul>
+	</div>
+	<div id="btn-scrolltop" class="btn-scrolltop">
+		<input class="btnii btn-blue" type="image" src="Images/24.png" onclick="document.getElementById('menutoggle').scrollTop = 0; document.getElementById('menutoggle').scrollLeft = 0; window.scrollTo(0,0); return false;">
+	</div>
+	<div role="main" class="main printable" id="menutoggle">
+		<div class="grid-pad">
+<div id="uidisplay">
+<!--End Top--><!--Start Top Panel-->
+<div class="col-1-1">
+	<div class="panel" style="max-width: 1200px">
+	<div class="panel-header ttbg-l" style="left: 0px; top: 0px">
+		<div class="panel-header-title1">myMITC Mobile</div>
+
+		</div>
+		<div class="panel-body" style="text-align:left">
+			<div class="scroll-cont">
+<!--End Top Panel-->
+		<div>
+			<div class="mrg-b5 fntw-b fnts-18 txta-c">
+				
+			</div>
+			<div class="txta-l">
+				<p><img src="images\progressive living.png? width="225" height="225" /></p>
+			</div>
+		</div>
+		
+<!--Start Btm Panel-->
+				</div>
+			</div>
+		</div>
+	</div>
+<!--End Btm Panel-->
+<!--Start Bottom-->
+			</div>
+			<div id="dbtmr" style="display:none" ></div>
+			<div id="debug" ondblclick="this.innerHTML=''" style="width: 400px;display:none"></div>
+		</div>
+	</div>
+	<div class="main-footer">&copy; MITC - All Rights Reserved</div>
+	<div class="sm-main-footer" style="background-color: #0099CC;">
+		<span class="main-footer-text">&copy; MITC - All Rights Reserved</span>
+	</div>
+	<!-- END BODY OF PAGE-->
+	
+	<!--Start mdl Window logon-->
+	<div id="logon_overlay" class="modal_overlay"></div>
+	<div id="logon_window" class="modal_win dialog_info" style="top:-10000px;padding-top:0px;visibility:hidden;">
+		<div id="logon_header" class="modal_header">myMITC Mobile</div>
+		<div id="logon_box" class="modal_body" style="">
+		<!--end start-->
+			
+			<p class="auto-style1" style="text-align:center;">
+			<img alt="Agency Workforce Management by MITC" height="90" src="images/ssanf.png" width="216"></p>
+			
+	<div id="lo_es"></div>
+	<form class="mrg-tb10" name="LO" id="LO" style="text-align:center;" onsubmit="event.preventDefault(); myMitcLogon();">
+		<div id="lo_unpwdiv" >
+			<div  class="frm-s">
+				<div class="frm-f">
+					<label class="frm-l100" for="lo_uname">User Name:</label>
+					<div class="frm-d">
+						<input  class="frm-i" type="text" name="lo_uname" id="lo_uname" value="">
+					</div>
+				</div>
+				<div class="frm-f">
+					<label class="frm-l100" for="PW">Password:</label>
+					<div class="frm-d">
+						<input class="frm-i" type="password" name="lo_pw" id="lo_pw">
+					</div>
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="btns btn-fw mrg-t20">Log On</button>
+				<input type="hidden" name="rt" value="">
+			</div>
+			<div id="rpun" style="display:none;">
+				<A href="javascript:rps()">Reset Password</A>
+				<input type="hidden" id="rpw" name="rpw" value="">
+				<input type="hidden" id="rpun" name="rpun" value="">
+			</div>
+			<script>
+				function rps()
+				{
+					e=document.getElementById("rpw");
+					e.value="1";
+					e=document.getElementById("LO");
+					e.action="newlogon.asp";
+					e.submit();
+				}				
+			</script>	
+		</div>
+		<div id="lo_otpdiv" style="display:none;" >
+			<div>
+				<b>Enter one time password sent to:</b><br><span id="lo_sntto"></span>
+			</div>
+			<div id="lo_otpdiv" style="" class="frm-s">
+				<div class="frm-f">
+					<label class="frm-l100" for="PW">Password:</label>
+					<div class="frm-d">
+						<input class="frm-i" type="text" name="lo_otp" id="lo_otp">
+					</div>
+				</div>
+			</div>
+			<div>
+				<button type="submit" class="btns btn-fw mrg-t20">Log On</button>
+				<input type="hidden" name="rt" value="">
+			</div>
+			<div>
+				<A href="javascript:rotp()">Resend One Time Password</A>				
+			</div>		
+		</div>			
+	</form>
+	<!--start end-->
+	</div><div id="logon_footer" style="display:none" class="modal_footer"></div>
+		<div type="button" class="close btn-red" id="logon_close" aria-label="close">
+			<img src="Images/x.png" class="i-18">
+		</div>
+	</div>
+	<!--End mdl Window logon-->
+	<!--Start mdl Window sBox-->
+	<div id="sBox_overlay" class="modal_overlay"></div>
+	<div id="sBox_window" class="modal_win dialog_info" style="top:-10000px;padding-top:0px;visibility:hidden;">
+		<div id="sBox_header" class="modal_header">Status</div>
+		<div id="sBox_box" class="modal_body" style="">
+		<!--end start--><div id="sBox_stat0" style="height:10px;width:10px;border-radius:5px;overflow:hidden">&nbsp;</div><div id="sBox_stat1"></div><div id="sBox_stat2" style="white-space:pre-line;max-height:600px"></div>
+
+	<!--start end-->
+	</div><div id="sBox_footer" class="modal_footer"><button type="button" class="btna btn-white" onClick="sBoxCancel()" onselectstart="return false">Cancel</button></div>
+		<div type="button" class="close btn-red" id="sBox_close" aria-label="close">
+			<img src="Images/x.png" class="i-18">
+		</div>
+	</div>
+	<!--End mdl Window sBox-->
+
+
+	<script type="text/javascript" src="include/dropdown-native.js"></script>
+	
+
+	<script>var navigation = responsiveNav("foo", {customToggle: ".nav-toggle"});</script>
+	
+	<script>
+	
+	window.onscroll = function() {myFunction()};
+	document.getElementById("menutoggle").onscroll = function() {myFunction()};
+	var btnscrolltop;
+	var menutoggle;
+	var vscrolld = false;
+	
+	function myFunction() {
+		
+		if (btnscrolltop == null)
+		{
+			btnscrolltop = document.getElementById("btn-scrolltop");
+			menutoggle = document.getElementById("menutoggle");
+		}
+		
+		if (document.body.scrollTop > 650 || document.documentElement.scrollTop > 650 || menutoggle.scrollTop > 650) {
+			if (btnscrolltop.style.visibility != "visible")
+			{
+				btnscrolltop.style.visibility = "visible";
+				btnscrolltop.style.opacity = ".7";
+			}
+		} else {
+			if (btnscrolltop.style.visibility != "hidden")
+			{
+				btnscrolltop.style.visibility = "hidden";
+				btnscrolltop.style.opacity = "0";
+			}
+		}
+		if (vscrolld) 
+		{
+			scrolld();
+		}
+	}	
+	</script>
+<!--End Bottom-->
+
+<script>
+	function generateUUID(){var d=new Date().getTime();var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {var r = (d + Math.random()*16)%16 | 0;d = d/16 | 0;return (c=='x' ? r : (r&0x7|0x8)).toString(16);});return uuid;};
+			var WindowID=window.name;
+	if(WindowID=="")
+	{
+		WindowID=generateUUID();
+		window.name = WindowID;
+	};
+		
+	if ("" != "")
+	{
+		if (window.name != "")
+		{
+			new CgetData("rd.asp","swopwid","","","","nI=&oI=" + encodeURIComponent(window.name) )
+	 		window.name = "";
+		}
+	};
+	
+	var arrWindowID = document.getElementsByName("WindowID");for(var i = 0; i < arrWindowID.length; i++){arrWindowID[i].value = window.name;};
+	mwd=function(a,b,c){
+		var d=window,e=d.XMLHttpRequest;if(!e)return!1;var f=new e;return"withCredentials"in f&&(f.onreadystatechange=function(){
+			if(4==f.readyState&&200==f.status)
+			{
+				c(f.responseText);
+			}				
+		},f.open("GET",a,false),f.setRequestHeader("Content-type","application/x-www-form-urlencoded"),f.setRequestHeader("Content-length",b.length),f.setRequestHeader("Connection","close"),f.send(b),!0)
+	}
+	mstatRet=function(a){return true;};
+	
+	
+	window.addEventListener('beforeunload',function(a){
+		mwd("rd_p.asp?gnd=pul&rI=","rI=",mstatRet)
+	}
+	);
+	
+	
+</script>
+
+</body>
+</html>
